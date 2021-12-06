@@ -93,6 +93,15 @@ public class VeggieDAO implements DAOInterface<VeggieDTO> {
     }
 
     public void delete(int id) {
+        Connection connection = GetConnected.getConnected();
+        try {
+            PreparedStatement pstmt = connection.prepareStatement("DELETE FROM veggies WHERE id=?");
+            pstmt.setInt(1,id);
+            int i = pstmt.executeUpdate();
+        }
+        catch(SQLException sqlx){
+            sqlx.printStackTrace();
+        }
     }
 
 }
