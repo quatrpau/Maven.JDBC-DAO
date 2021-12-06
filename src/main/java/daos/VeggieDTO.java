@@ -2,6 +2,8 @@ package daos;
 
 import models.DTOInterface;
 
+import java.util.Objects;
+
 public class VeggieDTO implements DTOInterface {
     private int id;
     private String name;
@@ -65,4 +67,16 @@ public class VeggieDTO implements DTOInterface {
         this.lastName = lastName;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VeggieDTO veggieDTO = (VeggieDTO) o;
+        return getId() == veggieDTO.getId() && Objects.equals(getName(), veggieDTO.getName()) && getType() == veggieDTO.getType() && getStatus() == veggieDTO.getStatus() && Objects.equals(getLastName(), veggieDTO.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getName(), getType(), getStatus(), getLastName());
+    }
 }

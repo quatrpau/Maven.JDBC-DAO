@@ -1,4 +1,4 @@
-package models;
+package daos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class GetConnected {
 
     public static final String URL = "jdbc:mysql://localhost:3306/veggies";
-    public static final String USER = "paul";
+    public static final String USER = "test";
     public static final String PASS = "test";
 
     public static Connection getConnected(){
